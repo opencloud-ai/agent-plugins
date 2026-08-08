@@ -1,8 +1,9 @@
 {
   "name": "opencloud-agent-plugins",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Official OpenCloud plugin distribution for ChatGPT, Codex, and Claude.",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "test": "node --test scripts/opencloud-plugin-manifest.test.mjs",

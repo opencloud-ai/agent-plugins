@@ -1,4 +1,4 @@
-# Claude plugin 1.0.0 submission
+# Claude plugin 1.0.1 submission
 
 Use these values for the Claude plugin directory submission. The plugin
 directory is distinct from the Claude Connectors Directory; submit both when
@@ -7,7 +7,7 @@ OpenCloud should be discoverable as both a workflow package and a connector.
 ## Listing values
 
 - **Name:** OpenCloud
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Plugin identifier:** `opencloud`
 - **Description:** Create, validate, deploy, and operate full-stack OpenCloud
   apps from Claude Code and Cowork.
@@ -26,7 +26,8 @@ OpenCloud should be discoverable as both a workflow package and a connector.
 
 ## Release notes
 
-OpenCloud 1.0.0 adds a Claude Code and Cowork plugin for creating, editing,
+OpenCloud 1.0.1 publishes the Claude Code and Cowork plugin from the canonical
+public repository under the MIT License. The plugin supports creating, editing,
 validating, previewing, deploying, and operating OpenCloud apps through the
 production hosted MCP server. It bundles exact-revision promotion, isolated
 development verification, safe secret handling, durable operation tracking,
@@ -39,9 +40,8 @@ the Claude.ai directory administration screen:
 
 1. Confirm `https://github.com/opencloud-ai/agent-plugins` remains public and
    exposes the complete package without reviewer credentials.
-2. Choose and add an appropriate open-source license, then add the matching
-   SPDX identifier to `.claude-plugin/plugin.json`. The repository currently
-   has no license file, so the license must not be guessed.
+2. Confirm `LICENSE` contains the MIT License and both client manifests use the
+   matching `MIT` SPDX identifier.
 3. Run `claude plugin validate ./plugins/opencloud --strict` and validate the
    containing marketplace with `claude plugin validate . --strict`.
 4. Install from the public GitHub source, enable the plugin, reload plugins,
