@@ -1,0 +1,14 @@
+{
+  "name": "opencloud-agent-plugins",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official OpenCloud plugin distribution for ChatGPT, Codex, and Claude.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test scripts/opencloud-plugin-manifest.test.mjs",
+    "validate:claude": "npx --yes @anthropic-ai/claude-code@2.1.221 plugin validate ./plugins/opencloud --strict && npx --yes @anthropic-ai/claude-code@2.1.221 plugin validate . --strict"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

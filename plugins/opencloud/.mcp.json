@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "opencloud": {
+      "type": "http",
+      "url": "https://mcp.opencloud.ai/mcp"
+    }
+  }
+}

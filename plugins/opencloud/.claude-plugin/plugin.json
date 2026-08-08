@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "opencloud",
+  "displayName": "OpenCloud",
+  "version": "1.0.0",
+  "description": "Create, validate, deploy, and operate full-stack OpenCloud apps from Claude Code and Cowork.",
+  "author": {
+    "name": "OpenCloud",
+    "url": "https://opencloud.ai"
+  },
+  "homepage": "https://docs.opencloud.ai/getting-started/mcp",
+  "repository": "https://github.com/opencloud-ai/agent-plugins",
+  "keywords": [
+    "app-builder",
+    "claude-code",
+    "cowork",
+    "deployment",
+    "mcp",
+    "opencloud"
+  ],
+  "defaultEnabled": false,
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,11 @@
+interface:
+  display_name: "Build OpenCloud Apps"
+  short_description: "Build and deploy apps through OpenCloud"
+  default_prompt: "Use $opencloud to build and deploy a private app on OpenCloud."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "opencloud"
+      description: "Create, validate, deploy, and verify OpenCloud apps"
+      transport: "streamable_http"
+      url: "https://mcp.opencloud.ai/mcp"

@@ -1,0 +1,43 @@
+{
+  "name": "opencloud",
+  "version": "1.0.0",
+  "description": "Create, validate, deploy, and operate full-stack applications on OpenCloud from ChatGPT and Codex.",
+  "author": {
+    "name": "OpenCloud",
+    "url": "https://opencloud.ai"
+  },
+  "homepage": "https://docs.opencloud.ai/getting-started/mcp",
+  "repository": "https://github.com/opencloud-ai/agent-plugins",
+  "keywords": [
+    "app-builder",
+    "chatgpt",
+    "codex",
+    "deployment",
+    "mcp",
+    "opencloud"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "OpenCloud",
+    "shortDescription": "Build and deploy web apps",
+    "longDescription": "Create, edit, validate, preview, deploy, and operate full-stack OpenCloud apps from ChatGPT or Codex. OpenCloud provides hosted PostgreSQL, Auth, Storage, Realtime, Functions, cron, observability, HTTPS releases, and rollback workflows. On iOS and Android, steer a connected Codex host through ChatGPT Remote without running a CLI on the phone.",
+    "developerName": "OpenCloud",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://opencloud.ai",
+    "privacyPolicyURL": "https://docs.opencloud.ai/legal/privacy",
+    "termsOfServiceURL": "https://docs.opencloud.ai/legal/terms",
+    "defaultPrompt": [
+      "Build and deploy a private app on OpenCloud.",
+      "Add a feature to my OpenCloud app and verify it.",
+      "Check my OpenCloud app's health and recent deployments."
+    ],
+    "brandColor": "#4E9FFF",
+    "composerIcon": "./assets/composer-icon.png",
+    "logo": "./assets/directory-icon.png"
+  },
+  "mcpServers": "./.mcp.json"
+}
