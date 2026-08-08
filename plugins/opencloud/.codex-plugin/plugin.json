@@ -1,6 +1,6 @@
 {
   "name": "opencloud",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create, validate, deploy, and operate full-stack applications on OpenCloud from ChatGPT and Codex.",
   "author": {
     "name": "OpenCloud",
@@ -8,6 +8,7 @@
   },
   "homepage": "https://docs.opencloud.ai/getting-started/mcp",
   "repository": "https://github.com/opencloud-ai/agent-plugins",
+  "license": "MIT",
   "keywords": [
     "app-builder",
     "chatgpt",

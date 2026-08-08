@@ -1,6 +1,6 @@
 # OpenCloud plugin
 
-OpenCloud 1.0.0 is one cross-client plugin package for creating, validating,
+OpenCloud 1.0.1 is one cross-client plugin package for creating, validating,
 deploying, and operating full-stack OpenCloud apps. It bundles the hosted MCP
 connection and the exact-revision workflow skill; no local OpenCloud CLI is
 required.
@@ -37,9 +37,7 @@ when prompted. The bundled skill is available as `/opencloud:opencloud` and can
 also activate automatically for matching requests.
 
 The package is publicly available from
-`https://github.com/opencloud-ai/agent-plugins`. An open-source license still
-needs to be selected before submission to Anthropic's public plugin directory;
-the repository intentionally does not guess that legal choice.
+`https://github.com/opencloud-ai/agent-plugins` under the MIT License.
 
 ## Connect other Claude surfaces
 

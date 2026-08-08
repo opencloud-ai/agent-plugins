@@ -16,7 +16,7 @@ async function readJson(relativePath) {
   );
 }
 
-test("OpenCloud client manifests describe one canonical 1.0.0 package", async () => {
+test("OpenCloud client manifests describe one canonical 1.0.1 package", async () => {
   const [
     packageManifest,
     codexMarketplace,
@@ -33,7 +33,8 @@ test("OpenCloud client manifests describe one canonical 1.0.0 package", async ()
     readJson("plugins/opencloud/.mcp.json"),
   ]);
 
-  assert.equal(packageManifest.version, "1.0.0");
+  assert.equal(packageManifest.version, "1.0.1");
+  assert.equal(packageManifest.license, "MIT");
 
   assert.equal(codexMarketplace.name, "opencloud-platform");
   assert.equal(codexMarketplace.plugins.length, 1);
@@ -52,18 +53,20 @@ test("OpenCloud client manifests describe one canonical 1.0.0 package", async ()
   );
 
   assert.equal(claudeMarketplace.name, "opencloud-platform");
-  assert.equal(claudeMarketplace.version, "1.0.0");
+  assert.equal(claudeMarketplace.version, "1.0.1");
   assert.equal(claudeMarketplace.plugins.length, 1);
 
   const [entry] = claudeMarketplace.plugins;
   assert.equal(entry.name, "opencloud");
   assert.equal(entry.source, "./plugins/opencloud");
-  assert.equal(entry.version, "1.0.0");
+  assert.equal(entry.version, "1.0.1");
+  assert.equal(entry.license, "MIT");
   assert.equal(entry.strict, true);
   assert.equal(entry.defaultEnabled, false);
 
   assert.equal(codexManifest.name, "opencloud");
-  assert.equal(codexManifest.version, "1.0.0");
+  assert.equal(codexManifest.version, "1.0.1");
+  assert.equal(codexManifest.license, "MIT");
   assert.equal(
     codexManifest.repository,
     "https://github.com/opencloud-ai/agent-plugins",
@@ -72,7 +75,8 @@ test("OpenCloud client manifests describe one canonical 1.0.0 package", async ()
   assert.equal(codexManifest.mcpServers, "./.mcp.json");
 
   assert.equal(claudeManifest.name, "opencloud");
-  assert.equal(claudeManifest.version, "1.0.0");
+  assert.equal(claudeManifest.version, "1.0.1");
+  assert.equal(claudeManifest.license, "MIT");
   assert.equal(
     claudeManifest.repository,
     "https://github.com/opencloud-ai/agent-plugins",
