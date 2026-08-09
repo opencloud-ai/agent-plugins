@@ -30,8 +30,8 @@ guidance; it does not create a second server.
   production verification supplies evidence before Claude reports success.
 - **Categories:** Developer tools; Productivity
 - **Documentation:** `https://docs.opencloud.ai/getting-started/mcp`
-- **Privacy policy:** `https://docs.opencloud.ai/legal/privacy`
-- **Support:** `https://docs.opencloud.ai/support`
+- **Privacy policy:** `https://opencloud.ai/privacy`
+- **Support:** `https://opencloud.ai/support`
 - **Company:** OpenCloud
 - **Website:** `https://opencloud.ai`
 - **Requested slug:** `opencloud`

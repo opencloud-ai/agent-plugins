@@ -14,9 +14,9 @@ OpenCloud should be discoverable as both a workflow package and a connector.
 - **Developer:** OpenCloud
 - **Website:** `https://opencloud.ai`
 - **Documentation:** `https://docs.opencloud.ai/getting-started/mcp`
-- **Support:** `https://docs.opencloud.ai/support`
-- **Privacy policy:** `https://docs.opencloud.ai/legal/privacy`
-- **Terms:** `https://docs.opencloud.ai/legal/terms`
+- **Support:** `https://opencloud.ai/support`
+- **Privacy policy:** `https://opencloud.ai/privacy`
+- **Terms:** `https://opencloud.ai/terms`
 - **Source directory:** `plugins/opencloud`
 - **Source repository:** `https://github.com/opencloud-ai/agent-plugins`
 - **Marketplace identifier:** `opencloud-platform`

@@ -55,6 +55,6 @@ surfaces receive the tools but not the bundled plugin skill.
 OpenCloud never needs a password, OAuth token, cookie, database credential, or
 secret value in a prompt. Use the platform's generated-secret or secret-entry
 workflows. See the [setup and surface guide](https://docs.opencloud.ai/getting-started/mcp),
-[support](https://docs.opencloud.ai/support),
-[privacy policy](https://docs.opencloud.ai/legal/privacy), and
-[terms](https://docs.opencloud.ai/legal/terms).
+[support](https://opencloud.ai/support),
+[privacy policy](https://opencloud.ai/privacy), and
+[terms](https://opencloud.ai/terms).

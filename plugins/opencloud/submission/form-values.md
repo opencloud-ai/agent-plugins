@@ -5,9 +5,9 @@
 - **MCP server URL:** `https://mcp.opencloud.ai/mcp`
 - **Source repository:** `https://github.com/opencloud-ai/agent-plugins`
 - **Website:** `https://opencloud.ai`
-- **Support:** `https://docs.opencloud.ai/support`
-- **Privacy policy:** `https://docs.opencloud.ai/legal/privacy`
-- **Terms of service:** `https://docs.opencloud.ai/legal/terms`
+- **Support:** `https://opencloud.ai/support`
+- **Privacy policy:** `https://opencloud.ai/privacy`
+- **Terms of service:** `https://opencloud.ai/terms`
 - **Developer name:** OpenCloud
 - **Category:** Developer Tools
 - **Custom UI:** None in version 1.0.1

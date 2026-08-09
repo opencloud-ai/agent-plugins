@@ -85,8 +85,8 @@ All client manifests and marketplace entries are released together. Version
 ## Support and legal
 
 See the [OpenCloud setup guide](https://docs.opencloud.ai/getting-started/mcp),
-[support](https://docs.opencloud.ai/support),
-[privacy policy](https://docs.opencloud.ai/legal/privacy), and
-[terms of service](https://docs.opencloud.ai/legal/terms).
+[support](https://opencloud.ai/support),
+[privacy policy](https://opencloud.ai/privacy), and
+[terms of service](https://opencloud.ai/terms).
 
 The package is available under the [MIT License](LICENSE).
