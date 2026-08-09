@@ -14,8 +14,8 @@ guidance; it does not create a second server.
   protected-resource discovery, dynamic client registration, and the
   `mcp:tools` scope
 - **Data access:** Read and write
-- **MCP App UI:** None in version 1.0.1
-- **Allowed link URIs:** None requested in version 1.0.1; normal HTTPS URLs in
+- **MCP App UI:** None in version 1.0.2
+- **Allowed link URIs:** None requested in version 1.0.2; normal HTTPS URLs in
   tool results do not use the MCP Apps `ui/open-link` capability
 
 ## Listing
@@ -30,8 +30,8 @@ guidance; it does not create a second server.
   production verification supplies evidence before Claude reports success.
 - **Categories:** Developer tools; Productivity
 - **Documentation:** `https://docs.opencloud.ai/getting-started/mcp`
-- **Privacy policy:** `https://docs.opencloud.ai/legal/privacy`
-- **Support:** `https://docs.opencloud.ai/support`
+- **Privacy policy:** `https://opencloud.ai/privacy`
+- **Support:** `https://opencloud.ai/support`
 - **Company:** OpenCloud
 - **Website:** `https://opencloud.ai`
 - **Requested slug:** `opencloud`
