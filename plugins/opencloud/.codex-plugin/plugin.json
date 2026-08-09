@@ -1,6 +1,6 @@
 {
   "name": "opencloud",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create, validate, deploy, and operate full-stack applications on OpenCloud from ChatGPT and Codex.",
   "author": {
     "name": "OpenCloud",
@@ -29,8 +29,8 @@
       "Write"
     ],
     "websiteURL": "https://opencloud.ai",
-    "privacyPolicyURL": "https://docs.opencloud.ai/legal/privacy",
-    "termsOfServiceURL": "https://docs.opencloud.ai/legal/terms",
+    "privacyPolicyURL": "https://opencloud.ai/privacy",
+    "termsOfServiceURL": "https://opencloud.ai/terms",
     "defaultPrompt": [
       "Build and deploy a private app on OpenCloud.",
       "Add a feature to my OpenCloud app and verify it.",
