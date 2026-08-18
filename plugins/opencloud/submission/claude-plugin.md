@@ -1,4 +1,4 @@
-# Claude plugin 1.0.2 submission
+# Claude plugin 1.0.3 submission
 
 Use these values for the Claude plugin directory submission. The plugin
 directory is distinct from the Claude Connectors Directory; submit both when
@@ -7,7 +7,7 @@ OpenCloud should be discoverable as both a workflow package and a connector.
 ## Listing values
 
 - **Name:** OpenCloud
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Plugin identifier:** `opencloud`
 - **Description:** Create, validate, deploy, and operate full-stack OpenCloud
   apps from Claude Code and Cowork.
@@ -26,12 +26,14 @@ OpenCloud should be discoverable as both a workflow package and a connector.
 
 ## Release notes
 
-OpenCloud 1.0.2 publishes the Claude Code and Cowork plugin from the canonical
+OpenCloud 1.0.3 publishes the Claude Code and Cowork plugin from the canonical
 public repository under the MIT License. The plugin supports creating, editing,
 validating, previewing, deploying, and operating OpenCloud apps through the
 production hosted MCP server. It bundles exact-revision promotion, isolated
 development verification, safe secret handling, durable operation tracking,
-and production verification guidance.
+and production verification guidance. Version 1.0.3 directs pre-deployment
+human review through the authenticated `browserPreviewUrl` and stops before
+promotion when the user explicitly declines deployment.
 
 ## Publication gates
 

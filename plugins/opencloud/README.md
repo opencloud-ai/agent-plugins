@@ -1,9 +1,14 @@
 # OpenCloud plugin
 
-OpenCloud 1.0.2 is one cross-client plugin package for creating, validating,
+OpenCloud 1.0.3 is one cross-client plugin package for creating, validating,
 deploying, and operating full-stack OpenCloud apps. It bundles the hosted MCP
 connection and the exact-revision workflow skill; no local OpenCloud CLI is
 required.
+
+For pre-deployment review, the skill directs agents to share the dev session's
+authenticated `browserPreviewUrl`. It opens the isolated revision in a clearly
+marked **Not live** shell with responsive viewport controls; an explicit
+no-deploy request stops before promotion.
 
 ## Package contents
 

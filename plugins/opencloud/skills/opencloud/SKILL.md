@@ -66,8 +66,13 @@ Build only through source drafts:
    hashes. Never fabricate either value.
 4. Call `validate_draft`; inspect every diagnostic and fix every error before
    continuing.
-5. Call `start_dev_session` for that exact validated revision. After each later
-   source edit, validate and call `apply_dev_revision` again.
+5. Call `start_dev_session` for that exact validated revision. If the user
+   wants to review it before deployment, give them `browserPreviewUrl`, never
+   the raw `previewUrl`. The owner/builder link opens a clearly marked **Not live**
+   window with Full size, Tablet, Mobile, and Reload tools around
+   isolated synthetic data. An explicit no-deploy request stops at this review
+   point and does not authorize promotion. After each later source edit,
+   validate and call `apply_dev_revision` again.
 6. Inspect the preview with `request_dev_app` and, where needed,
    `mutate_dev_data`. Use only dummy development fixtures.
 7. Exercise every declared Function with `invoke_dev_function`, then inspect

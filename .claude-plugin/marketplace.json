@@ -2,7 +2,7 @@
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "opencloud-platform",
   "description": "Official OpenCloud plugins for building and operating full-stack applications.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "owner": {
     "name": "OpenCloud",
     "url": "https://opencloud.ai"
@@ -12,7 +12,7 @@
       "name": "opencloud",
       "source": "./plugins/opencloud",
       "displayName": "OpenCloud",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "Create, validate, deploy, and operate full-stack OpenCloud apps from Claude Code and Cowork.",
       "author": {
         "name": "OpenCloud",

@@ -1,6 +1,6 @@
 {
   "name": "opencloud",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Create, validate, deploy, and operate full-stack applications on OpenCloud from ChatGPT and Codex.",
   "author": {
     "name": "OpenCloud",
