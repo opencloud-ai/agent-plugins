@@ -29,8 +29,8 @@ Restart the ChatGPT desktop app, open **Plugins**, choose **OpenCloud
 Platform**, and install **OpenCloud**. Start a new conversation after enabling
 it and complete OAuth when prompted.
 
-To test the immutable 1.0.2 release instead of tracking `main`, add the
-marketplace with `--ref v1.0.2`.
+To test the immutable 1.0.3 release instead of tracking `main`, add the
+marketplace with `--ref v1.0.3`.
 
 ## Install for Claude Code and Cowork
 
@@ -80,7 +80,7 @@ claude plugin validate . --strict
 ```
 
 All client manifests and marketplace entries are released together. Version
-1.0.2 is tagged as `v1.0.2`.
+1.0.3 is tagged as `v1.0.3`.
 
 ## Support and legal
 

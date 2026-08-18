@@ -1,7 +1,7 @@
 # OpenCloud plugin review test cases
 
 These are the exact five positive and three negative cases for the OpenCloud
-1.0.2 submission. Run them with a dedicated reviewer account whose OAuth
+1.0.3 submission. Run them with a dedicated reviewer account whose OAuth
 connection is already complete and does not require MFA, SMS, email approval,
 or private-network access.
 

@@ -14,8 +14,8 @@ guidance; it does not create a second server.
   protected-resource discovery, dynamic client registration, and the
   `mcp:tools` scope
 - **Data access:** Read and write
-- **MCP App UI:** None in version 1.0.2
-- **Allowed link URIs:** None requested in version 1.0.2; normal HTTPS URLs in
+- **MCP App UI:** None in version 1.0.3
+- **Allowed link URIs:** None requested in version 1.0.3; normal HTTPS URLs in
   tool results do not use the MCP Apps `ui/open-link` capability
 
 ## Listing
