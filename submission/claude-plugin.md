@@ -1,8 +1,39 @@
 # Claude plugin 1.1.0 submission
 
-Use these values for the Claude plugin directory submission. The plugin
-directory is distinct from the Claude Connectors Directory; submit both when
-OpenCloud should be discoverable as both a workflow package and a connector.
+Claude's directory lists a plugin and a connector separately. Submit both:
+this plugin bundle, and the hosted MCP server as a connector, as
+`claude-connector.md` describes.
+
+## Before you submit
+
+- A paid Claude plan: Pro, Max, Ultra, Team or Enterprise. On Team and
+  Enterprise, an Owner submits, or a member an Owner gave the **Directory**
+  permission.
+- A GitHub account connected in the developer portal. The repository is
+  public, so read access is enough.
+- The platform release that names Open Cloud Solutions Limited on the
+  website, privacy policy and terms is live.
+
+## Submit
+
+1. Open the developer portal at `https://claude.ai/directory/manage`, select
+   **Submit new**, then **Plugin bundle**.
+2. On the **Source** step, enter:
+   - **Repository:** `opencloud-ai/agent-plugins`
+   - **Plugin path:** `plugins/opencloud`
+   - **Branch or tag:** `main`, so each merged release reaches the
+     directory, or a release tag such as `v1.1.0`
+3. Select **Validate**. Fix every finding the report marks **Blocking**, push
+   the fix, and select **Re-validate**. The directory's name check runs only
+   here: if another organisation already uses `opencloud`, the report says
+   **Name is taken**.
+4. Check the **Listing details** step. The portal reads them from
+   `plugins/opencloud/.claude-plugin/plugin.json` and the plugin README, so
+   change them there, not in the portal.
+5. On **Review and submit**, keep **GitHub push webhook**, choose whether
+   passing versions publish automatically, and select **Submit for review**.
+6. Once the scan passes, select **Publish**. An Anthropic reviewer publishes
+   the first version.
 
 ## Listing values
 
@@ -35,25 +66,23 @@ with a terminal, and keeps the exact-revision preview, verification,
 publishing and secret-handling rules. The plugin now starts enabled once
 installed.
 
-## Publication gates
+## Checks before each submission
 
-Before submitting at `https://platform.claude.com/plugins/submit` or through
-the Claude.ai directory administration screen:
-
-1. Confirm `https://github.com/opencloud-ai/agent-plugins` remains public and
-   exposes the complete package without reviewer credentials.
-2. Confirm `LICENSE` contains the MIT License and both client manifests use the
+1. Confirm `https://github.com/opencloud-ai/agent-plugins` is still public and
+   holds the complete package.
+2. Confirm `LICENSE` holds the MIT License and both client manifests use the
    matching `MIT` SPDX identifier.
-3. Run `claude plugin validate ./plugins/opencloud --strict` and validate the
-   containing marketplace with `claude plugin validate . --strict`.
-4. Install from the public GitHub source and run the positive and negative
-   review cases from `plugins/opencloud/.codex-plugin/plugin.json`, with the
-   reviewer account described in `submission/test-cases.md`, where the skill
-   uses the connector: Claude chat, or Cowork without a shell. In Claude Code
-   the skill takes the CLI path instead, so check that path separately.
-5. Confirm that the public source link exposes the manifest, MCP configuration,
-   skill, documentation, and any license without requiring reviewer
-   credentials.
+3. Run `npm run validate`, Claude Code's strict validator for the plugin and
+   the marketplace, and `npm run check:live`.
+4. Install from the public marketplace with
+   `/plugin install opencloud --marketplace opencloud-ai/agent-plugins`, then
+   run `claude plugin details opencloud@opencloud-platform`. It should list
+   the `build-apps` skill and the `opencloud` MCP server.
+5. Run the positive and negative review cases from
+   `plugins/opencloud/.codex-plugin/plugin.json`, with the reviewer account
+   described in `submission/test-cases.md`, where the skill uses the
+   connector: Claude chat, or Cowork without a shell. In Claude Code the
+   skill takes the CLI path instead, so check that path separately.
 
 Reviewer credentials belong only in the submission portal's protected fields.
 Never commit credentials, tokens, cookies, one-time links, or secret-entry URLs.
