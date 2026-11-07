@@ -1,92 +1,102 @@
-# OpenCloud agent plugins
+# OpenCloud plugins
 
-Official OpenCloud plugin distribution for ChatGPT, Codex, Claude Code, and
-Claude Cowork. One versioned package combines the hosted OpenCloud MCP server
-with the workflow skill used to create, validate, deploy, and operate
-full-stack OpenCloud applications.
+The OpenCloud plugin for ChatGPT, Codex, Claude Code, Cowork and Claude chat.
+It bundles OpenCloud's hosted connector, `https://mcp.opencloud.ai`, with a
+skill that guides the assistant through OpenCloud's build, preview and publish
+steps. The plugin itself is in [`plugins/opencloud`](plugins/opencloud); its
+README is what people see when they browse the plugin.
 
-## Supported surfaces
-
-| Surface | Package path | What it provides |
-| --- | --- | --- |
-| ChatGPT and Codex | `.codex-plugin/plugin.json` | Hosted MCP tools and the OpenCloud workflow skill |
-| Claude Code and Cowork | `.claude-plugin/plugin.json` | The same hosted MCP tools and shared workflow skill |
-| Claude.ai, Desktop, and mobile | `https://mcp.opencloud.ai/mcp` | Remote MCP connector tools |
-
-The plugin and connector use the same MCP endpoint. No local OpenCloud CLI or
-credential file is required; supported clients complete OpenCloud OAuth.
-
-## Install for ChatGPT and Codex
-
-Add the public marketplace:
+## Install in ChatGPT and Codex
 
 ```bash
 codex plugin marketplace add opencloud-ai/agent-plugins
-codex plugin marketplace list
 ```
 
 Restart the ChatGPT desktop app, open **Plugins**, choose **OpenCloud
-Platform**, and install **OpenCloud**. Start a new conversation after enabling
-it and complete OAuth when prompted.
+Platform** and install **OpenCloud**. Start a new chat and sign in when
+asked. Once OpenAI's plugin directory lists OpenCloud, people can install it
+from there instead.
 
-To test the immutable 1.0.3 release instead of tracking `main`, add the
-marketplace with `--ref v1.0.3`.
-
-## Install for Claude Code and Cowork
+## Install in Claude Code
 
 ```bash
 claude plugin marketplace add opencloud-ai/agent-plugins
 claude plugin install opencloud@opencloud-platform
-claude plugin enable opencloud@opencloud-platform
 ```
 
-Start a new Claude Code session or run `/reload-plugins`, open `/mcp`, and
-complete OpenCloud OAuth. The shared skill is available as
-`/opencloud:opencloud`.
+On Claude Code 2.1.275 or later, one command in a session does both:
+`/plugin install opencloud --marketplace opencloud-ai/agent-plugins`.
 
-For Claude.ai, Claude Desktop, and Claude mobile, add
-`https://mcp.opencloud.ai/mcp` under **Customize > Connectors**. Connector-only
-surfaces receive the MCP tools but not the bundled workflow skill.
+Start a new session or run `/reload-plugins`. The skill runs by itself for
+matching requests and is also available as `/opencloud:build-apps`. Sessions
+with a terminal follow OpenCloud's CLI path; the connector is for sessions
+without one, and its sign-in is under `/mcp`.
 
-## Repository layout
+## Claude on the web, desktop and mobile
+
+Add `opencloud-ai/agent-plugins` as a marketplace under **Customize >
+Plugins** on claude.ai and install **OpenCloud**. The plugin brings the skill
+and lists the connector on its **Connectors** tab, where you connect it.
+Plugins installed on claude.ai also reach Claude Code as `opencloud@synced`.
+
+Without the plugin, people can still add `https://mcp.opencloud.ai` under
+**Customize > Connectors**. They then get OpenCloud's tools without the skill.
+
+## Layout
 
 ```text
-.agents/plugins/marketplace.json       ChatGPT and Codex marketplace
-.claude-plugin/marketplace.json        Claude marketplace
-plugins/opencloud/                     Canonical cross-client package
-  .codex-plugin/plugin.json
-  .claude-plugin/plugin.json
-  .mcp.json
-  skills/opencloud/SKILL.md
-  assets/
-  submission/
+.claude-plugin/marketplace.json     The "opencloud-platform" marketplace for Claude
+.agents/plugins/marketplace.json    The same marketplace for ChatGPT and Codex
+plugins/opencloud/                  The plugin
+  .claude-plugin/plugin.json        Claude manifest and directory listing fields
+  .codex-plugin/plugin.json         ChatGPT and Codex manifest, listing and review cases
+  .mcp.json                         The hosted OpenCloud connector
+  skills/build-apps/SKILL.md        Workflow and safety guide for the assistant
+  assets/icon.png                   Listing icon
+scripts/                            Package tests, the live tool check and the OpenAI packager
+submission/                         Notes for the OpenAI and Claude directory submissions
 ```
 
-## Validate
-
-The package has no runtime dependencies. Run its structural and pinned Claude
-CLI checks with:
+## Check a change
 
 ```bash
 npm test
-npm run validate:claude
+npm run validate
+npm run check:live
 ```
 
-The second command runs these strict validators with Claude Code 2.1.221:
+`npm test` checks the manifests, the skill, the package rules of Anthropic's
+plugin directory and the listing limits of OpenAI's. `npm run validate` runs
+Claude Code's strict validator on the plugin and the marketplace.
+`npm run check:live` opens an anonymous MCP session on
+`https://mcp.opencloud.ai` and confirms that every tool the skill and the
+review cases name, and the `opencloud-skill` resource, still exist. CI runs
+all three on pull requests and once a week.
+
+To try a local copy before you push:
 
 ```bash
-claude plugin validate ./plugins/opencloud --strict
-claude plugin validate . --strict
+claude plugin marketplace add ./
+claude plugin install opencloud@opencloud-platform
 ```
 
-All client manifests and marketplace entries are released together. Version
-1.0.3 is tagged as `v1.0.3`.
+## Release
 
-## Support and legal
+1. Raise `version` in both `plugins/opencloud/.claude-plugin/plugin.json` and
+   `plugins/opencloud/.codex-plugin/plugin.json`. Claude Code installs a new
+   copy only when it changes.
+2. Merge to `main`, then tag the merge commit `vX.Y.Z`.
+3. Point the platform repository's plugin catalogs at the new tag and commit.
+4. For OpenAI's plugin directory, run `npm run package:openai` and upload
+   `dist/opencloud-X.Y.Z-openai.zip`, as
+   [`submission/openai-directory.md`](submission/openai-directory.md)
+   describes.
 
-See the [OpenCloud setup guide](https://docs.opencloud.ai/getting-started/mcp),
-[support](https://opencloud.ai/support),
-[privacy policy](https://opencloud.ai/privacy), and
-[terms of service](https://opencloud.ai/terms).
+## Support and policies
 
-The package is available under the [MIT License](LICENSE).
+See [OpenCloud support](https://opencloud.ai/support), the
+[privacy policy](https://opencloud.ai/privacy) and the
+[terms](https://opencloud.ai/terms). Report security problems privately as
+[SECURITY.md](SECURITY.md) describes.
+
+Available under the [MIT License](LICENSE).

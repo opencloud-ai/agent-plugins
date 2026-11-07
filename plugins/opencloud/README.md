@@ -1,65 +1,57 @@
-# OpenCloud plugin
+# OpenCloud
 
-OpenCloud 1.0.3 is one cross-client plugin package for creating, validating,
-deploying, and operating full-stack OpenCloud apps. It bundles the hosted MCP
-connection and the exact-revision workflow skill; no local OpenCloud CLI is
-required.
+OpenCloud is a home for the web apps your team makes: a request tracker, an
+onboarding checklist, a shared dashboard. Describe what you need to your AI
+assistant, it builds the app with OpenCloud, and the app gets its own address
+with its own database, sign-in and storage. OpenCloud hosts it and keeps it
+running.
 
-For pre-deployment review, the skill directs agents to share the dev session's
-authenticated `browserPreviewUrl`. It opens the isolated revision in a clearly
-marked **Not live** shell with responsive viewport controls; an explicit
-no-deploy request stops before promotion.
+## What the plugin adds
 
-## Package contents
+- **The OpenCloud connector.** Your assistant gets OpenCloud's tools for
+  making, previewing, publishing and looking after your apps.
+- **OpenCloud's building guide.** A skill that shows the assistant how to
+  work with OpenCloud: try every change in a private preview with made-up
+  data, publish only when you ask and the checks pass, and never ask you for
+  a password or secret in the chat.
 
-- `.codex-plugin/plugin.json` describes the ChatGPT and Codex plugin.
-- `.claude-plugin/plugin.json` describes the Claude Code and Cowork plugin.
-- `.mcp.json` connects both clients to `https://mcp.opencloud.ai/mcp`.
-- `skills/opencloud/SKILL.md` is the shared build, verification, deployment,
-  and secret-handling workflow.
+## Get started
 
-## Install in Claude Code
+1. Install the plugin, then start a new chat.
+2. Ask for an app, for example: "Use OpenCloud to make a request tracker for
+   my team."
+3. When you're asked to sign in, use the OpenCloud page that opens. New to
+   OpenCloud? The same page creates your account; confirm your email, then
+   create or join your organisation when asked.
 
-From a checkout of this repository, validate and load the plugin directly:
+In Claude Code, install the plugin from inside a session:
 
-```bash
-claude plugin validate ./plugins/opencloud --strict
-claude --plugin-dir ./plugins/opencloud
+```text
+/plugin install opencloud --marketplace opencloud-ai/agent-plugins
 ```
 
-For a marketplace install from the public GitHub repository:
+The guide is then also available as `/opencloud:build-apps`.
 
-```bash
-claude plugin marketplace add opencloud-ai/agent-plugins
-claude plugin install opencloud@opencloud-platform
-claude plugin enable opencloud@opencloud-platform
-```
+## What it connects to
 
-The plugin intentionally installs disabled because it connects to an external
-service. Enabling it is the user's explicit opt-in. Start a new Claude Code
-session, or run `/reload-plugins`, then open `/mcp` and complete OpenCloud OAuth
-when prompted. The bundled skill is available as `/opencloud:opencloud` and can
-also activate automatically for matching requests.
+- **`https://mcp.opencloud.ai`**, OpenCloud's hosted connector. You sign in
+  on OpenCloud's own pages at `auth.opencloud.ai`, so the assistant never
+  sees your password.
+- **OpenCloud's current instructions** at `https://opencloud.ai/SKILL.md` and
+  its documentation at `https://docs.opencloud.ai`, which the guide may ask
+  the assistant to read.
+- **The OpenCloud command-line tool**, in sessions with a terminal such as
+  Codex or Claude Code. OpenCloud's instructions have the assistant install
+  it with `https://docs.opencloud.ai/install.sh`, which downloads the release
+  from GitHub and checks it against its published checksum.
 
-The package is publicly available from
-`https://github.com/opencloud-ai/agent-plugins` under the MIT License.
+The plugin has no hooks, scripts or programs of its own, and it sends
+nothing anywhere else.
 
-## Connect other Claude surfaces
+## Help and policies
 
-Claude.ai, Claude Desktop, and Claude mobile use the same hosted server as a
-remote MCP connector. Add `https://mcp.opencloud.ai/mcp` in **Customize >
-Connectors**, then complete OAuth. Claude deduplicates a connector and plugin
-that point at the same endpoint, so users should not see two copies of the tool
-set.
+- Support: <https://opencloud.ai/support>
+- Privacy: <https://opencloud.ai/privacy>
+- Terms: <https://opencloud.ai/terms>
 
-The plugin supplies the workflow skill in Claude Code and Cowork. Connector-only
-surfaces receive the tools but not the bundled plugin skill.
-
-## Safety and support
-
-OpenCloud never needs a password, OAuth token, cookie, database credential, or
-secret value in a prompt. Use the platform's generated-secret or secret-entry
-workflows. See the [setup and surface guide](https://docs.opencloud.ai/getting-started/mcp),
-[support](https://opencloud.ai/support),
-[privacy policy](https://opencloud.ai/privacy), and
-[terms](https://opencloud.ai/terms).
+The plugin is available under the [MIT License](LICENSE).

@@ -1,4 +1,4 @@
-# Claude plugin 1.0.3 submission
+# Claude plugin 1.1.0 submission
 
 Use these values for the Claude plugin directory submission. The plugin
 directory is distinct from the Claude Connectors Directory; submit both when
@@ -7,10 +7,11 @@ OpenCloud should be discoverable as both a workflow package and a connector.
 ## Listing values
 
 - **Name:** OpenCloud
-- **Version:** 1.0.3
+- **Version:** 1.1.0
 - **Plugin identifier:** `opencloud`
-- **Description:** Create, validate, deploy, and operate full-stack OpenCloud
-  apps from Claude Code and Cowork.
+- **Description:** Make, change and look after full-stack web apps for your
+  team, right from Claude. OpenCloud hosts them with a database, sign-in and
+  storage, and keeps them running.
 - **Developer:** OpenCloud
 - **Website:** `https://opencloud.ai`
 - **Documentation:** `https://docs.opencloud.ai/getting-started/mcp`
@@ -21,19 +22,18 @@ OpenCloud should be discoverable as both a workflow package and a connector.
 - **Source repository:** `https://github.com/opencloud-ai/agent-plugins`
 - **Marketplace identifier:** `opencloud-platform`
 - **Category:** Development
-- **MCP server:** `https://mcp.opencloud.ai/mcp`
+- **MCP server:** `https://mcp.opencloud.ai`
 - **Components:** one hosted MCP server and one workflow skill
 
 ## Release notes
 
-OpenCloud 1.0.3 publishes the Claude Code and Cowork plugin from the canonical
-public repository under the MIT License. The plugin supports creating, editing,
-validating, previewing, deploying, and operating OpenCloud apps through the
-production hosted MCP server. It bundles exact-revision promotion, isolated
-development verification, safe secret handling, durable operation tracking,
-and production verification guidance. Version 1.0.3 directs pre-deployment
-human review through the authenticated `browserPreviewUrl` and stops before
-promotion when the user explicitly declines deployment.
+OpenCloud 1.1.0 connects to the canonical hosted MCP endpoint
+`https://mcp.opencloud.ai`, so the plugin and a connector added from the setup
+guide share one server. Its rewritten skill names only tools the server
+offers, covers organisation onboarding, uses the OpenCloud CLI in sessions
+with a terminal, and keeps the exact-revision preview, verification,
+publishing and secret-handling rules. The plugin now starts enabled once
+installed.
 
 ## Publication gates
 
@@ -46,9 +46,11 @@ the Claude.ai directory administration screen:
    matching `MIT` SPDX identifier.
 3. Run `claude plugin validate ./plugins/opencloud --strict` and validate the
    containing marketplace with `claude plugin validate . --strict`.
-4. Install from the public GitHub source, enable the plugin, reload plugins,
-   complete OAuth through `/mcp`, and run the positive and negative cases in
-   `test-cases.md` with a dedicated reviewer account.
+4. Install from the public GitHub source and run the positive and negative
+   review cases from `plugins/opencloud/.codex-plugin/plugin.json`, with the
+   reviewer account described in `submission/test-cases.md`, where the skill
+   uses the connector: Claude chat, or Cowork without a shell. In Claude Code
+   the skill takes the CLI path instead, so check that path separately.
 5. Confirm that the public source link exposes the manifest, MCP configuration,
    skill, documentation, and any license without requiring reviewer
    credentials.

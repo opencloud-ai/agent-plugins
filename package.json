@@ -1,13 +1,14 @@
 {
   "name": "opencloud-agent-plugins",
-  "version": "1.0.3",
   "private": true,
-  "description": "Official OpenCloud plugin distribution for ChatGPT, Codex, and Claude.",
+  "description": "The OpenCloud plugin for ChatGPT, Codex, Claude Code, Cowork and Claude chat.",
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "test": "node --test scripts/opencloud-plugin-manifest.test.mjs",
-    "validate:claude": "npx --yes @anthropic-ai/claude-code@2.1.221 plugin validate ./plugins/opencloud --strict && npx --yes @anthropic-ai/claude-code@2.1.221 plugin validate . --strict"
+    "test": "node --test scripts/opencloud-plugin.test.mjs",
+    "validate": "npx --yes @anthropic-ai/claude-code@2.1.310 plugin validate ./plugins/opencloud --strict && npx --yes @anthropic-ai/claude-code@2.1.310 plugin validate . --strict",
+    "check:live": "node scripts/check-live-tools.mjs",
+    "package:openai": "node scripts/package-openai.mjs"
   },
   "engines": {
     "node": ">=20"

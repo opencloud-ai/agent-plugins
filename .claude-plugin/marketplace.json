@@ -1,42 +1,23 @@
 {
-  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "opencloud-platform",
-  "description": "Official OpenCloud plugins for building and operating full-stack applications.",
-  "version": "1.0.3",
+  "description": "The OpenCloud plugin for Claude: make, change and look after full-stack web apps for your team.",
   "owner": {
     "name": "OpenCloud",
+    "email": "support@opencloud.ai",
     "url": "https://opencloud.ai"
   },
   "plugins": [
     {
       "name": "opencloud",
       "source": "./plugins/opencloud",
-      "displayName": "OpenCloud",
-      "version": "1.0.3",
-      "description": "Create, validate, deploy, and operate full-stack OpenCloud apps from Claude Code and Cowork.",
-      "author": {
-        "name": "OpenCloud",
-        "url": "https://opencloud.ai"
-      },
-      "homepage": "https://docs.opencloud.ai/getting-started/mcp",
-      "repository": "https://github.com/opencloud-ai/agent-plugins",
-      "license": "MIT",
-      "keywords": [
-        "app-builder",
-        "claude-code",
-        "cowork",
-        "deployment",
-        "mcp",
-        "opencloud"
-      ],
       "category": "development",
       "tags": [
         "apps",
+        "app-builder",
         "deployment",
         "mcp"
-      ],
-      "strict": true,
-      "defaultEnabled": false
+      ]
     }
   ]
 }
