@@ -35,7 +35,7 @@ guidance; it does not create a second server.
 - **Company:** OpenCloud
 - **Website:** `https://opencloud.ai`
 - **Requested slug:** `opencloud`
-- **Icon:** `plugins/opencloud/assets/directory-icon.png`
+- **Icon:** `plugins/opencloud/assets/icon.png` (512 × 512 PNG)
 
 ## Primary use cases
 
@@ -61,9 +61,9 @@ Before submitting through the Claude.ai connector portal:
    require MFA, SMS, email approval, or private-network access during review.
 3. Run every advertised tool with valid parameters through MCP Inspector or a
    custom Claude connector. Record only non-secret pass/fail evidence; do not
-   commit credentials or response bodies containing user data. Run
-   `npm run audit:opencloud-claude-connector` first for the read-only metadata
-   and safe/write-method split audit.
+   commit credentials or response bodies containing user data. First run
+   `npm run audit:opencloud-claude-connector` from the platform repository for
+   the read-only metadata and safe/write-method split audit.
 4. Confirm every tool has a title, a name of at most 64 characters, an accurate
    narrow description, and the applicable read/write annotations. Keep the
    safe `GET` and `HEAD` methods in `request_dev_app` and fixture writes in

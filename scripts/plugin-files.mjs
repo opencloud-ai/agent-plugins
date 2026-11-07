@@ -1,4 +1,5 @@
-import { readFile, readdir } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
+import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -74,17 +75,30 @@ export function reviewToolNames(codexManifest) {
   return [...names].sort();
 }
 
-/** Plugin-root-relative paths of every file in the OpenAI ZIP, sorted. */
-export async function openAiPackageFiles(directory = pluginRoot) {
-  const files = [];
-  for (const entry of await readdir(directory, { withFileTypes: true })) {
-    const entryPath = path.join(directory, entry.name);
-    const relative = path.relative(pluginRoot, entryPath).split(path.sep);
-    if (OPENAI_EXCLUDED_ROOTS.has(relative[0])) continue;
-    if (entry.isDirectory()) files.push(...(await openAiPackageFiles(entryPath)));
-    else if (entry.isFile()) files.push(relative.join("/"));
-  }
-  return files.sort();
+function git(...args) {
+  return execFileSync("git", args, { cwd: repositoryRoot, encoding: "utf8" });
+}
+
+const pluginPath = path.relative(repositoryRoot, pluginRoot).split(path.sep).join("/");
+
+/**
+ * Plugin-root-relative paths of every committed file in the OpenAI ZIP,
+ * sorted. Untracked files, such as editor or system files, never ship.
+ */
+export async function openAiPackageFiles() {
+  return git("ls-files", "-z", "--", pluginPath)
+    .split("\0")
+    .filter(Boolean)
+    .map((file) => file.slice(pluginPath.length + 1))
+    .filter((file) => !OPENAI_EXCLUDED_ROOTS.has(file.split("/")[0]))
+    .sort();
+}
+
+/** `git status` lines for uncommitted changes in the plugin folder. */
+export function uncommittedPluginChanges() {
+  return git("status", "--porcelain", "--", pluginPath)
+    .split("\n")
+    .filter(Boolean);
 }
 
 function pngDimensions(bytes) {

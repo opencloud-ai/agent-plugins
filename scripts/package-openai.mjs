@@ -10,6 +10,7 @@ import { deflateRawSync } from "node:zlib";
 import {
   openAiListingProblems,
   openAiPackageFiles,
+  uncommittedPluginChanges,
   pluginRoot,
   readJson,
   repositoryRoot,
@@ -84,6 +85,14 @@ function zip(entries) {
   end.writeUInt32LE(directory.length, 12);
   end.writeUInt32LE(offset, 16);
   return Buffer.concat([...locals, directory, end]);
+}
+
+// Package only what is committed, so one commit always gives one ZIP.
+const changes = uncommittedPluginChanges();
+if (changes.length > 0) {
+  console.error("✘ Commit or discard these changes in plugins/opencloud first:");
+  for (const change of changes) console.error(`  ${change}`);
+  process.exit(1);
 }
 
 const manifest = await readJson("plugins/opencloud/.codex-plugin/plugin.json");

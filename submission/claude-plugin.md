@@ -9,8 +9,9 @@ OpenCloud should be discoverable as both a workflow package and a connector.
 - **Name:** OpenCloud
 - **Version:** 1.1.0
 - **Plugin identifier:** `opencloud`
-- **Description:** Create, validate, deploy, and operate full-stack OpenCloud
-  apps from Claude Code and Cowork.
+- **Description:** Make, change and look after full-stack web apps for your
+  team, right from Claude. OpenCloud hosts them with a database, sign-in and
+  storage, and keeps them running.
 - **Developer:** OpenCloud
 - **Website:** `https://opencloud.ai`
 - **Documentation:** `https://docs.opencloud.ai/getting-started/mcp`
@@ -28,9 +29,11 @@ OpenCloud should be discoverable as both a workflow package and a connector.
 
 OpenCloud 1.1.0 connects to the canonical hosted MCP endpoint
 `https://mcp.opencloud.ai`, so the plugin and a connector added from the setup
-guide share one server. Its rewritten, client-neutral skill names only tools
-the server offers, covers organisation onboarding, and keeps the
-exact-revision preview, verification, publishing and secret-handling rules.
+guide share one server. Its rewritten skill names only tools the server
+offers, covers organisation onboarding, uses the OpenCloud CLI in sessions
+with a terminal, and keeps the exact-revision preview, verification,
+publishing and secret-handling rules. The plugin now starts enabled once
+installed.
 
 ## Publication gates
 
@@ -43,10 +46,11 @@ the Claude.ai directory administration screen:
    matching `MIT` SPDX identifier.
 3. Run `claude plugin validate ./plugins/opencloud --strict` and validate the
    containing marketplace with `claude plugin validate . --strict`.
-4. Install from the public GitHub source, reload plugins, complete OAuth
-   through `/mcp`, and run the positive and negative review cases from
-   `plugins/opencloud/.codex-plugin/plugin.json` with the reviewer account
-   described in `submission/test-cases.md`.
+4. Install from the public GitHub source and run the positive and negative
+   review cases from `plugins/opencloud/.codex-plugin/plugin.json`, with the
+   reviewer account described in `submission/test-cases.md`, where the skill
+   uses the connector: Claude chat, or Cowork without a shell. In Claude Code
+   the skill takes the CLI path instead, so check that path separately.
 5. Confirm that the public source link exposes the manifest, MCP configuration,
    skill, documentation, and any license without requiring reviewer
    credentials.

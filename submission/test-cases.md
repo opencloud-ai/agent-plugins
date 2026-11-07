@@ -34,13 +34,23 @@ organisation with:
 - one active release and at least one earlier, superseded release;
 - a declared `tasks_created` counter and one warning alert rule on it.
 
-Case P1 creates a new app each run, case P2 adds a migration, case P4 replaces
-the `REVIEW_SIGNING_KEY` secret and case P5 adds a backup. Delete apps left
-from earlier runs and check the fixture before each submission.
+Keep the fixture's source so you can build it again. Running the cases changes
+it: P1 creates a new app, P2 adds a priority field with a new migration, P4
+stores or replaces the `REVIEW_SIGNING_KEY` secret and P5 adds a backup. If
+the priority field already exists, P2 can't show its migration and release,
+so reset the fixture after every rehearsal and before each submission:
+
+1. Delete the apps P1 created.
+2. Delete **OpenCloud Review Tasks** and build it again from the saved
+   source, with its sample rows, two releases, counter and alert rule, and no
+   `REVIEW_SIGNING_KEY`.
+3. Open it once to check that it matches the list above.
 
 ## Before submitting
 
-Run every case through the plugin in ChatGPT with the reviewer account, on
-desktop and on mobile, and record the demo video from those runs. Record only
-pass or fail evidence; never commit credentials, screenshots of secrets or
-response bodies containing user data.
+Run every case with the reviewer account in ChatGPT, on the web, on desktop
+and on mobile, and in Codex. In Codex and other sessions with a terminal, the
+skill takes the OpenCloud CLI path, so expect CLI commands there instead of
+the listed tools. Record the demo video from those runs, then reset the
+fixture. Record only pass or fail evidence; never commit credentials,
+screenshots of secrets or response bodies containing user data.

@@ -58,6 +58,10 @@ test("the marketplaces list the one OpenCloud plugin in this repository", async 
   assert.equal(codexMarketplace.plugins.length, 1);
   assert.equal(codexMarketplace.plugins[0].name, "opencloud");
   assert.equal(codexMarketplace.plugins[0].source.path, "./plugins/opencloud");
+  assert.deepEqual(codexMarketplace.plugins[0].policy, {
+    installation: "AVAILABLE",
+    authentication: "ON_INSTALL",
+  });
 });
 
 test("the manifests carry the fields the directory listings read", async () => {
@@ -75,6 +79,10 @@ test("the manifests carry the fields the directory listings read", async () => {
     assert.ok(manifest.description.length > 0);
   }
   assert.equal(codex.version, claude.version, "both clients ship one release");
+  // Without these declarations OpenAI ignores the skill and .mcp.json, and the
+  // upload would have no MCP server.
+  assert.equal(codex.skills, "./skills/");
+  assert.equal(codex.mcpServers, "./.mcp.json");
   assert.equal(claude.displayName, "OpenCloud");
   assert.equal(claude.defaultEnabled, undefined, "the plugin starts enabled");
 

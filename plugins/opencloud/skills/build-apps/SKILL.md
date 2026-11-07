@@ -120,6 +120,8 @@ verification is not a published app. Never say it is.
   token, database credential or secret value. Use `generate_secret` for
   values OpenCloud can create, `create_secret_entry_link` when the person
   must enter one themselves, and `list_secrets` to show which secrets exist.
+  `generate_secret` replaces any value already stored under that name, so
+  check `list_secrets` first and say so before replacing one.
 - Dev sessions hold only made-up data. Never read or change the live app to
   work around something the dev session can't do.
 - Restore a backup, roll back, delete a secret or domain, or change who can
