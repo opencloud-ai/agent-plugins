@@ -57,7 +57,7 @@
               "description": "Change an existing app and keep its data.",
               "prompt": "In OpenCloud Review Tasks, add a priority to each task (low, normal or high) and let me filter tasks by priority. Keep the existing tasks, publish the change and confirm it works.",
               "tools_triggered": "list_apps, get_app, get_app_starter, create_draft, list_files, read_files, apply_file_changes, validate_draft, start_dev_session, verify_dev_session, promote_dev_revision, get_operation, verify_app, get_verification_run",
-              "expected_behavior": "Finds OpenCloud Review Tasks, starts a draft from its live release and adds a new database migration instead of rewriting an existing one. Validates and verifies the change in an isolated preview, publishes it, and reports the new active release and its address. The existing tasks are still there. In a session with a terminal, such as Codex, the same steps may run through the OpenCloud CLI instead of these tools."
+              "expected_behavior": "Finds OpenCloud Review Tasks, starts a draft from its live release and adds a new database migration instead of rewriting an existing one. Validates and verifies the change in an isolated preview, publishes it, and reports the new active release and its address. The existing tasks are still there. If an earlier run already added the priority field, it says so, shows that filtering by priority works, and adds no second migration. In a session with a terminal, such as Codex, the same steps may run through the OpenCloud CLI instead of these tools."
             },
             {
               "description": "Check an app's health without changing anything.",
@@ -97,7 +97,7 @@
         "commerce_description": "The plugin doesn't sell anything or take payments."
       },
       "publication": {
-        "release_notes": "First directory release of the OpenCloud plugin. It connects to OpenCloud's hosted tools at https://mcp.opencloud.ai and adds a workflow skill for building, previewing, publishing and operating OpenCloud apps."
+        "release_notes": "First directory release of the OpenCloud plugin. It connects to OpenCloud's hosted tools at https://mcp.opencloud.ai and adds a workflow skill for building, previewing, publishing and operating OpenCloud apps. In sessions with a terminal, such as Codex, the skill uses the OpenCloud command-line tool instead of the hosted tools."
       }
     }
   }

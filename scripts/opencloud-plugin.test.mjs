@@ -151,6 +151,9 @@ test("the skill names OpenCloud's current tools and keeps its safety rules", asy
 
   assert.equal(name, "build-apps");
   assert.ok(description.length > 0 && description.length <= 1024);
+  // The skill names clients only as examples in its body, never in the
+  // description every client shows.
+  assert.doesNotMatch(description, /\b(ChatGPT|Codex|Claude|Cowork)\b/);
 
   for (const phrase of [
     "`opencloud-skill`",

@@ -36,9 +36,12 @@ organisation with:
 
 Keep the fixture's source so you can build it again. Running the cases changes
 it: P1 creates a new app, P2 adds a priority field with a new migration, P4
-stores or replaces the `REVIEW_SIGNING_KEY` secret and P5 adds a backup. If
-the priority field already exists, P2 can't show its migration and release,
-so reset the fixture after every rehearsal and before each submission:
+stores or replaces the `REVIEW_SIGNING_KEY` secret and P5 adds a backup. P2
+shows its migration and new release only on its first run after a reset; a
+later run finds the priority field already there, says so and adds no second
+migration, which its expected behaviour allows. Reset the fixture after every
+rehearsal and before each submission, so OpenAI's reviewers start from the
+original state:
 
 1. Delete the apps P1 created.
 2. Delete **OpenCloud Review Tasks** and build it again from the saved
@@ -51,6 +54,7 @@ so reset the fixture after every rehearsal and before each submission:
 Run every case with the reviewer account in ChatGPT, on the web, on desktop
 and on mobile, and in Codex. In Codex and other sessions with a terminal, the
 skill takes the OpenCloud CLI path, so expect CLI commands there instead of
-the listed tools. Record the demo video from those runs, then reset the
-fixture. Record only pass or fail evidence; never commit credentials,
+the listed tools. To see P2's migration on each of them, reset the fixture
+between them; otherwise expect P2's repeat branch after the first. Record the
+demo video from those runs, then reset the fixture. Record only pass or fail evidence; never commit credentials,
 screenshots of secrets or response bodies containing user data.
