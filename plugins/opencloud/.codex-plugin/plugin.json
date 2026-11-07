@@ -97,7 +97,7 @@
         "commerce_description": "The plugin doesn't sell anything or take payments."
       },
       "publication": {
-        "release_notes": "First directory release of the OpenCloud plugin. It connects to OpenCloud's hosted tools at https://mcp.opencloud.ai and adds a workflow skill for building, previewing, publishing and operating OpenCloud apps. In sessions with a terminal, such as Codex, the skill uses the OpenCloud command-line tool instead of the hosted tools."
+        "release_notes": "First directory release of the OpenCloud plugin. It connects to OpenCloud's hosted tools at https://mcp.opencloud.ai and adds a workflow skill for building, previewing, publishing and operating OpenCloud apps. In sessions with a terminal, such as Codex, the skill first tries the OpenCloud command-line tool and uses the hosted tools when it cannot install or run it."
       }
     }
   }

@@ -56,5 +56,6 @@ and on mobile, and in Codex. In Codex and other sessions with a terminal, the
 skill takes the OpenCloud CLI path, so expect CLI commands there instead of
 the listed tools. To see P2's migration on each of them, reset the fixture
 between them; otherwise expect P2's repeat branch after the first. Record the
-demo video from those runs, then reset the fixture. Record only pass or fail evidence; never commit credentials,
-screenshots of secrets or response bodies containing user data.
+demo video from those runs, then reset the fixture. Record only pass or fail
+evidence; never commit credentials, screenshots of secrets or response bodies
+containing user data.
