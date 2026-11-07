@@ -7,15 +7,15 @@ guidance; it does not create a second server.
 
 ## Connection
 
-- **Server URL:** `https://mcp.opencloud.ai/mcp`
+- **Server URL:** `https://mcp.opencloud.ai`
 - **Transport:** Streamable HTTP
 - **URL model:** Every user connects to the same URL
 - **Authentication:** OAuth 2.0 authorization code flow with PKCE S256,
   protected-resource discovery, dynamic client registration, and the
   `mcp:tools` scope
 - **Data access:** Read and write
-- **MCP App UI:** None in version 1.0.3
-- **Allowed link URIs:** None requested in version 1.0.3; normal HTTPS URLs in
+- **MCP App UI:** None in version 1.1.0
+- **Allowed link URIs:** None requested in version 1.1.0; normal HTTPS URLs in
   tool results do not use the MCP Apps `ui/open-link` capability
 
 ## Listing
@@ -65,12 +65,13 @@ Before submitting through the Claude.ai connector portal:
    `npm run audit:opencloud-claude-connector` first for the read-only metadata
    and safe/write-method split audit.
 4. Confirm every tool has a title, a name of at most 64 characters, an accurate
-   narrow description, and the applicable read/write annotations. Keep safe
-   HTTP methods in `request_dev_app` and write methods in
-   `mutate_dev_data`; do not combine them into a catch-all request tool.
-5. Run the five positive and three negative cases in `test-cases.md`, including
-   read-only health inspection, exact-revision deployment, secret
-   non-disclosure, validation refusal, and tenant-isolation refusal.
+   narrow description, and the applicable read/write annotations. Keep the
+   safe `GET` and `HEAD` methods in `request_dev_app` and fixture writes in
+   `create_dev_data_row`, `create_dev_data_rows`, `update_dev_data_row` and
+   `delete_dev_data_row`; do not combine them into a catch-all request tool.
+5. Run the five positive and three negative review cases from
+   `plugins/opencloud/.codex-plugin/plugin.json` with the account and fixture
+   described in `submission/test-cases.md`.
 6. Test OAuth and representative read/write workflows in every claimed launch
    surface. Confirm that a connector and plugin configured with the same URL
    expose one deduplicated tool set.

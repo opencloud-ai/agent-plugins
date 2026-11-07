@@ -1,8 +1,9 @@
 # Security
 
-Do not report suspected vulnerabilities in a public issue. Use the private
-contact options on the [OpenCloud support page](https://opencloud.ai/support)
-and include only the minimum reproduction details needed to investigate.
+Do not report suspected vulnerabilities in a public issue. Email
+support@opencloud.ai, or use the contact options on the
+[OpenCloud support page](https://opencloud.ai/support), and include only the
+details needed to reproduce the problem.
 
-Never include passwords, OAuth tokens, cookies, database credentials, secret
-values, one-time links, or customer data in a report.
+Never include passwords, OAuth tokens, cookies, email links or codes,
+database credentials, secret values, or anyone's personal data in a report.
