@@ -91,6 +91,10 @@ claude plugin install opencloud@opencloud-platform
    `dist/opencloud-X.Y.Z-openai.zip`, as
    [`submission/openai-directory.md`](submission/openai-directory.md)
    describes.
+5. For Claude's directory, set the plugin's **Tracked branch or tag** to the
+   new tag on its **Settings** tab in the developer portal, then select
+   **Publish update** once the scan passes, as
+   [`submission/claude-plugin.md`](submission/claude-plugin.md) describes.
 
 ## Support and policies
 

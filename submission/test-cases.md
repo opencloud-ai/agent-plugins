@@ -21,8 +21,9 @@ person's account:
 
 The sign-in page offers an email link first. Reviewers sign in with **Use a
 password instead**. Enter the email, password and these instructions only in
-the portal's protected **Review details** fields, and keep the account and its
-data in place for later reviews.
+the portals' protected fields: **Review details** in OpenAI's portal, and the
+connector's **Test & launch** step in Claude's (its plugin form has no such
+field). Keep the account and its data in place for later reviews.
 
 ## Fixture app
 
