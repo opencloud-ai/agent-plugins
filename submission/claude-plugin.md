@@ -69,12 +69,12 @@ same organisation submits both.
    address such as `support@opencloud.ai`, and select all four
    acknowledgements.
 7. On **Review and submit**, choose **Scheduled check only**: with a tracked
-   tag, each release moves the tag in **Settings**, which starts the scan, so
-   the GitHub push webhook adds nothing. Track `main` instead and you'd keep
-   **GitHub push webhook** and select **Set up push updates**, which needs
-   admin access to the repository. Leave **Auto-publish passing versions**
-   off, so a version goes live only when you choose, and select **Submit for
-   review**.
+   tag, each release points **Tracked branch or tag** at the new release tag
+   in **Settings**, which starts the scan, so the GitHub push webhook adds
+   nothing. Track `main` instead and you'd keep **GitHub push webhook** and
+   select **Set up push updates**, which needs admin access to the repository.
+   Leave **Auto-publish passing versions** off, so a version goes live only
+   when you choose, and select **Submit for review**.
 8. Once a version passes its scan, select **Publish**. By default an
    Anthropic reviewer then publishes each version. The **Auto-publish** row on
    the plugin's **Overview** tab shows which publish setting applies. A
