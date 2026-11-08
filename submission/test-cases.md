@@ -21,8 +21,9 @@ person's account:
 
 The sign-in page offers an email link first. Reviewers sign in with **Use a
 password instead**. Enter the email, password and these instructions only in
-the portal's protected **Review details** fields, and keep the account and its
-data in place for later reviews.
+the portals' protected fields: **Review details** in OpenAI's portal, and the
+connector's **Test & launch** step in Claude's (its plugin form has no such
+field). Keep the account and its data in place for later reviews.
 
 ## Fixture app
 
@@ -40,8 +41,8 @@ stores or replaces the `REVIEW_SIGNING_KEY` secret and P5 adds a backup. P2
 shows its migration and new release only on its first run after a reset; a
 later run finds the priority field already there, says so and adds no second
 migration, which its expected behaviour allows. Reset the fixture after every
-rehearsal and before each submission, so OpenAI's reviewers start from the
-original state:
+rehearsal and before each submission, so reviewers start from the original
+state:
 
 1. Delete the apps P1 created.
 2. Delete **OpenCloud Review Tasks** and build it again from the saved
