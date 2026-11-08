@@ -27,12 +27,13 @@ Claude Desktop, Claude mobile, Cowork and Claude Code.
   server starts without sign-in. Tools that need an account answer with HTTP
   401 and a `WWW-Authenticate` challenge, and the client then runs OAuth.
 - **Authentication method:** **OAuth sign-in**, with Claude registering
-  itself through dynamic client registration. OpenCloud's authorization
-  server offers PKCE S256, protected-resource discovery and the `mcp:tools`
-  scope. There are no Anthropic-held client credentials to enter. The docs
-  prefer a Client ID Metadata Document or Anthropic-held credentials for
-  busy servers, because dynamic registration creates a client on every fresh
-  connection; OpenCloud doesn't offer a metadata document yet.
+  itself through dynamic client registration. The MCP server publishes
+  protected-resource metadata. OpenCloud's authorization server supports
+  dynamic client registration, PKCE S256 and the `mcp:tools` scope, and
+  doesn't accept Client ID Metadata Documents yet. There are no
+  Anthropic-held client credentials to enter. The docs prefer a Client ID
+  Metadata Document or Anthropic-held credentials for busy servers, because
+  dynamic registration creates a client on every fresh connection.
 - **Data access:** Read and write
 - **MCP App UI:** None
 - **Allowed link URIs:** None requested; normal HTTPS URLs in tool results

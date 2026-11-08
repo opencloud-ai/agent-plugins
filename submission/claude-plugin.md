@@ -16,8 +16,7 @@ same organisation submits both.
 - **GitHub:** a GitHub account connected on claude.ai in the submitting
   organisation, with write (push) access to `opencloud-ai/agent-plugins`.
   The portal checks push access before it creates, submits or publishes the
-  plugin. Setting up the push webhook also needs admin access to the
-  repository.
+  plugin.
 - **Release:** the platform release that names Open Cloud Solutions Limited
   on the website, privacy policy and terms is live.
 - **Connector:** `https://mcp.opencloud.ai` is already submitted from the
@@ -39,11 +38,15 @@ same organisation submits both.
    the fix, and select **Re-validate**. `claude plugin validate` doesn't check
    names, but the portal does, here and in every scan after you submit:
    - **Name is taken** blocks the submission. Fall back to `opencloud-ai`, as
-     Sprout became `sprout-is`.
-   - **Name matches a known brand** or **Name may be confused with an
-     existing listing** is a **Policy hold**. You can submit, and an Anthropic
-     reviewer decides. One is possible here: OpenCloud GmbH (opencloud.eu)
-     sells an unrelated file-sharing product called OpenCloud.
+     Sprout became `sprout-is`. A rename is a release: change `name`, add a
+     `renames` entry to `.claude-plugin/marketplace.json` so existing
+     installs move, raise `version`, and update the tests, both READMEs and
+     the platform docs that name `opencloud@opencloud-platform`.
+   - **Name matches a known brand**, **Name may be confused with an existing
+     listing** or **Publisher name may be confused with another** is a
+     **Policy hold**. You can submit, and an Anthropic reviewer decides. One
+     is possible here: OpenCloud GmbH (opencloud.eu) sells an unrelated
+     file-sharing product called OpenCloud.
 4. Check the **Listing details** step. The portal reads them from
    `plugins/opencloud/.claude-plugin/plugin.json` and the plugin README, so
    change them there, not in the portal.
@@ -52,11 +55,12 @@ same organisation submits both.
    - **Reads or stores personal data:** it reads and changes OpenCloud
      account and app data through the OpenCloud connector. The plugin itself
      stores nothing.
-   - **Sends data to services other than its declared connectors:** in
-     sessions with a terminal, the skill has the assistant install the
-     OpenCloud CLI from `https://docs.opencloud.ai/install.sh`, which
-     downloads the release from GitHub. The CLI then calls OpenCloud's API
-     directly.
+   - **Sends data to services other than its declared connectors:** the
+     skill may have the assistant read `https://opencloud.ai/SKILL.md` and
+     the documentation at `https://docs.opencloud.ai`. In sessions with a
+     terminal, it has the assistant install the OpenCloud CLI from
+     `https://docs.opencloud.ai/install.sh`, which downloads the release from
+     GitHub, and the CLI then calls OpenCloud's API directly.
    - **How long it keeps data:** the plugin keeps none. OpenCloud keeps
      account and app data as its privacy policy describes.
    - **Intended for people under 18:** no. OpenCloud's terms require users to
@@ -64,10 +68,13 @@ same organisation submits both.
 6. On the **Compliance** step, set the contact email to a monitored team
    address such as `support@opencloud.ai`, and select all four
    acknowledgements.
-7. On **Review and submit**, keep **GitHub push webhook** and leave
-   **Auto-publish passing versions** off, so a version goes live only when
-   you choose. Select **Submit for review**, then **Set up push updates**,
-   which needs admin access to the repository.
+7. On **Review and submit**, choose **Scheduled check only**: with a tracked
+   tag, each release moves the tag in **Settings**, which starts the scan, so
+   the GitHub push webhook adds nothing. Track `main` instead and you'd keep
+   **GitHub push webhook** and select **Set up push updates**, which needs
+   admin access to the repository. Leave **Auto-publish passing versions**
+   off, so a version goes live only when you choose, and select **Submit for
+   review**.
 8. Once a version passes its scan, select **Publish**. By default an
    Anthropic reviewer then publishes each version. The **Auto-publish** row on
    the plugin's **Overview** tab shows which publish setting applies. A
@@ -133,6 +140,7 @@ installed.
    connector: Claude chat, or Cowork without a shell. In Claude Code the
    skill takes the CLI path instead, so check that path separately.
 
-The plugin form has no reviewer-account field. Reviewers use the account
-entered in the connector's **Test & launch** step. Never commit credentials,
-tokens, cookies, one-time links, or secret-entry URLs.
+The plugin form has no reviewer-account field. The reviewer account goes
+only in the connector's **Test & launch** step; if the plugin's reviewer asks
+for access, answer from the plugin's page in the portal. Never commit
+credentials, tokens, cookies, one-time links, or secret-entry URLs.

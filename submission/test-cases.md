@@ -41,8 +41,8 @@ stores or replaces the `REVIEW_SIGNING_KEY` secret and P5 adds a backup. P2
 shows its migration and new release only on its first run after a reset; a
 later run finds the priority field already there, says so and adds no second
 migration, which its expected behaviour allows. Reset the fixture after every
-rehearsal and before each submission, so OpenAI's reviewers start from the
-original state:
+rehearsal and before each submission, so reviewers start from the original
+state:
 
 1. Delete the apps P1 created.
 2. Delete **OpenCloud Review Tasks** and build it again from the saved
